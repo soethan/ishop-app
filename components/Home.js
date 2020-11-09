@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, FlatList, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { products as mockedProducts } from '../data';
 
 const Home = () => {
@@ -16,12 +16,6 @@ const Home = () => {
     </ScrollView>
   );
 };
-{/* <FlatList data={products} renderItem={itemData => (
-  <View style={styles.item}>
-    <Text style={styles.productName}>{itemData.item.name}</Text>
-  </View>
-)}>
-</FlatList> */}
 
 const styles = StyleSheet.create({
   root: {

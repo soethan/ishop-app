@@ -1,46 +1,51 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons'
-import Home from './components/Home';
+import * as React from 'react';
+import { Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export default function App() {
+function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.appName}>
-        <FontAwesomeIcon style={styles.icon} icon={faBars} />iShop
-        </Text>
-      </View>
-      <Home />
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Home!</Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  appName: {
-    backgroundColor: '#333',
-    color: '#fff',
-    fontFamily: 'Courier-Bold',
-    fontSize: 20,
-    height: 25,
-    width: '100%',
-    textAlign: 'center',
-  },
-  header: {
-    flexDirection: 'row',
-  },
-  icon: {
-    marginLeft: 20,
-    width: 30,
-    height: 30,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#333',
-    color: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 20,
-  },
-});
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator tabBarOptions={{
+        activeTintColor: '#333',
+        labelPosition: "beside-icon"
+      }}>
+        <Tab.Screen name="Home" component={HomeScreen}
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="home" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen name="Settings" component={SettingsScreen}
+          options={{
+            tabBarLabel: 'Settings',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="settings" color={color} size={size} />
+            ),
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
