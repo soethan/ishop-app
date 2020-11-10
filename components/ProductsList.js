@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { products as mockedProducts } from '../data';
 
-const Home = () => {
+const ProductsList = () => {
   const [products, setProducts] = useState(mockedProducts);
   return (
     <ScrollView style={styles.root}>
@@ -26,9 +26,9 @@ const styles = StyleSheet.create({
     height: 90,
   },
   productName: {
-    color: 'yellow',
+    color: '#333',
     padding: 4,
   },
 });
 
-export default Home;
+export default ProductsList;

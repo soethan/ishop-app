@@ -3,14 +3,7 @@ import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
+import ProductsList from './components/ProductsList';
 
 function SettingsScreen() {
   return (
@@ -29,7 +22,7 @@ export default function App() {
         activeTintColor: '#333',
         labelPosition: "beside-icon"
       }}>
-        <Tab.Screen name="Home" component={HomeScreen}
+        <Tab.Screen name="Home" component={ProductsList}
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({ color, size }) => (
