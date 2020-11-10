@@ -1,17 +1,9 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ProductsList from './components/ProductsList';
-
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
+import SettingsList from './components/SettingsList';
 
 const Tab = createBottomTabNavigator();
 
@@ -30,7 +22,7 @@ export default function App() {
             ),
           }}
         />
-        <Tab.Screen name="Settings" component={SettingsScreen}
+        <Tab.Screen name="Settings" component={SettingsList}
           options={{
             tabBarLabel: 'Settings',
             tabBarIcon: ({ color, size }) => (

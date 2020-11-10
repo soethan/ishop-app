@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, ScrollView } from 'react-native';
+import AppHeader from './AppHeader';
 import { products as mockedProducts } from '../data';
 
 const ProductsList = () => {
   const [products, setProducts] = useState(mockedProducts);
   return (
-    <ScrollView style={styles.root}>
-      <View>
+    <SafeAreaView style={styles.root}>
+      <AppHeader />
+      <ScrollView>
         {products.map(item => (
           <View style={styles.item} key={item.id}>
             <Text style={styles.productName}>{item.name}</Text>
           </View>
         ))}
-        </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
