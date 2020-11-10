@@ -1,17 +1,26 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const AppHeader = () => {
+const AppHeader = ({ navigation, title, prevName }) => {
   return (
     <View style={styles.root}>
       <View style={styles.left}>
         <MaterialCommunityIcons name="menu" size={30} />
       </View>
       <View style={styles.center}>
-        <Text style={styles.title}>iShop</Text>
+        <Text style={styles.title}>{title}</Text>
       </View>
-      <View style={styles.right}></View>
+      <View style={styles.right}>
+        {prevName &&
+          <TouchableOpacity onPress={() => navigation.navigate(prevName)}>
+            <View style={styles.back}>
+              <MaterialCommunityIcons name="arrow-left-circle" size={30} />
+              <Text style={styles.backText}>Back</Text>
+            </View>
+          </TouchableOpacity>
+        }
+      </View>
     </View>
   );
 };
@@ -21,16 +30,24 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 50,
   },
+  back: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  backText: {
+    fontWeight: 'bold',
+  },
   left: {
     flex: 1,
     justifyContent: 'center',
   },
   center: {
-    flex: 1.5,
+    flex: 5,
     justifyContent: 'center',
   },
   right: {
-    flex: 1,
+    flex: 2,
     justifyContent: 'center',
   },
   title: {

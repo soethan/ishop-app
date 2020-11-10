@@ -5,7 +5,7 @@ import AppHeader from './AppHeader';
 const SettingsList = () => {
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <AppHeader />
+      <AppHeader title={'iShop - Settings'} />
       <View style={styles.content}>
         <Text>Settings!</Text>
       </View>
