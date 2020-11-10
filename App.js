@@ -1,11 +1,19 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ProductsList from './components/ProductsList';
 import ProductDetails from './components/ProductDetails';
 import SettingsList from './components/SettingsList';
+
+const AppTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: '#d3d3d3',
+  },
+};
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -22,7 +30,7 @@ const ProductStack = () => {
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={AppTheme}>
       <Tab.Navigator tabBarOptions={{
         activeTintColor: '#333',
         labelPosition: "beside-icon"
